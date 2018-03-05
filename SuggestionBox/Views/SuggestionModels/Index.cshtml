@@ -1,0 +1,39 @@
+﻿@model IEnumerable<SuggestionBox.Models.SuggestionModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Topic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Suggestion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Topic)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Suggestion)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SuggestionID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SuggestionID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SuggestionID })
+        </td>
+    </tr>
+}
+
+</table>
